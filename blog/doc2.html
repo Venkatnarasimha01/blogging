@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Website</title>
+    <link rel="stylesheet" href="style.css">
+     
+</head>
+<body>
+    <div class="main">
+    <div id="blogContainer">
+        <h1>My Blog</h1></div>
+<div>
+        <!-- Blog Post Form -->
+        <form id="blogForm">
+            <h2 id="1">Creat A New Blog</h2>
+            <label for="blogTitle">Title:</label>
+            <input type="text" id="blogTitle" required><br>
+            <label for="blogContent">Content:</label>
+            <textarea id="blogContent" rows="4" cols="50" required></textarea><br>
+            <label for="blogImage">Image:</label>
+            <input type="file" id="blogImage" accept="image/*"><br>
+            <button type="submit">Publish</button>
+        </form>
+
+        <!-- Display Blog Posts -->
+        <div id="blogPosts">
+            <!-- Blog posts will be displayed here dynamically -->
+        </div>
+    </div>
+    </div>
+    <script>
+        // Blog post submission
+        document.getElementById('blogForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var blogTitle = document.getElementById('blogTitle').value;
+            var blogContent = document.getElementById('blogContent').value;
+            var blogImage = document.getElementById('blogImage').files[0];
+
+            if (blogTitle.trim() === '' || blogContent.trim() === '' || !blogImage) {
+                alert('Please fill in all fields and select an image.');
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var blogPosts = document.getElementById('blogPosts');
+
+                var postContainer = document.createElement('div');
+                postContainer.className = 'blogPost';
+
+                var titleElement = document.createElement('h3');
+                titleElement.textContent = blogTitle;
+
+                var contentElement = document.createElement('p');
+                contentElement.textContent = blogContent;
+
+                var imageElement = document.createElement('img');
+                imageElement.className = 'blogImage';
+                imageElement.src = e.target.result;
+
+                postContainer.appendChild(titleElement);
+                postContainer.appendChild(contentElement);
+                postContainer.appendChild(imageElement);
+
+                blogPosts.appendChild(postContainer);
+
+                // Clear form fields
+                document.getElementById('blogTitle').value = '';
+                document.getElementById('blogContent').value = '';
+                document.getElementById('blogImage').value = '';
+            };
+
+            reader.readAsDataURL(blogImage);
+        });
+    </script>
+</body>
+</html>

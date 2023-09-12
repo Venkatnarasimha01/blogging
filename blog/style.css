@@ -1,0 +1,65 @@
+/* Basic CSS styling */
+body {
+    font-family: Arial, sans-serif;
+    
+    margin: 0;
+    padding: 0;
+}
+
+#blogContainer {
+    background-color: #84aad2;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: linear-gradient(rgba(142, 220, 216, 0.858),rgba(101, 23, 23, 0.753))#600327;
+    text-align: center;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.main {
+    max-width: 800px;
+    margin: 20px auto;
+    border-radius: 40px;
+    padding: 20px;
+    background-image: linear-gradient(rgba(145, 135, 135, 0.75),rgba(202, 183, 183, 0.75)),
+	url(wall.jpg);
+     
+}
+
+#blogForm {
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+label, input, textarea {
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #162905e1;
+    color: #e7e4e4;
+    border-radius: 40px;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #c7cec2e1;
+    color: #a21818;
+    border-radius: 10px;
+    font-size: large;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.blog-posts {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+/* Add additional styles as needed */
